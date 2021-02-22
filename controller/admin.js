@@ -1,0 +1,46 @@
+const Product=require('../models/product')
+exports.getaddProduct=(req,res,next)=>{
+    res.render('add-product',{
+        path:'/add-product'
+    })
+}
+exports.postaddProduct=(req,res,next)=>{
+    Product.create(req.body,function(err,data){
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+        return res.redirect('/products')
+        }
+    })
+}
+exports.getUpdateProduct=(req,res,next)=>{
+    Product.findById({_id:req.params._id},function(err,item){
+    res.render('update-product',{
+        path:'/update-product',
+        product:item
+    })
+    })
+}
+exports.postUpdateProduct=(req,res,next)=>{
+    Product.updateOne({_id:req.params._id},req.body,function(err,data){
+        if(err)
+            console.log(err);
+        else
+        {
+            res.redirect('/products')
+        }
+    })
+}
+exports.getDeleteProduct=(req,res,next)=>{
+     Product.deleteOne({_id:req.params._id},function(err){
+        if(err)
+            console.log(err);
+        else
+        {
+            res.redirect('/products')
+        }
+    })
+}

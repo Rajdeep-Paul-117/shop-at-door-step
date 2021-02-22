@@ -1,0 +1,17 @@
+.cart{
+	background-color: #64b5f6;
+}
+img{
+	height:10vh;
+
+}
+.title{
+	text-decoration: none;
+	color:black;
+}
+.title:hover{
+	color:black;
+}
+.total{
+	float: right;
+}

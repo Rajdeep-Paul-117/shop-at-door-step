@@ -1,0 +1,67 @@
+
+<%- include("includes/header" )%>
+<title>Cart</title>
+<link rel="stylesheet" href='styles/cart.css'>
+</head>
+<body>
+    <%- include('includes/navigation') %>
+    <div class="container-fluid cart table-responsive">
+    		<h5>Cart</h5>
+        <table class="table table-bordered table-hover">
+          <thread>
+            <tr>
+              <th scope="col">Serial no.</th>
+              <th scope="col">Image</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Delete Item</th>
+              <th scope="col">Item Totlal Price</th>
+            </tr>
+          </thread>
+          <tbody>
+          <% for(let i=0;i<products.length ;i++){%>
+            <tr>
+              <th scope="row"><%=i+1%></th>
+              <td><img src="<%= products[i].productId.img%>"></td>
+              <td>
+                  <a class="title" href="/item/<%= products[i].productId._id %>" ><%= products[i].productId.title%></a>
+              </td>
+              <td><p>Price:$<%= products[i].productId.price%></p></td>
+              <td>
+                <form method="POST",action="/cart">
+              <input name="productId" value="<%=products[i].productId._id%>" type="hidden" >
+              <label>Quantity:</label>
+              <select name="quantity" onchange="this.form.submit()">
+                <option <%=products[i].quantity==1?"selected":''%> value="1">1</option>
+                <option <%=products[i].quantity==2?"selected":''%> value="2">2</option>
+                <option <%=products[i].quantity==3?"selected":''%> value="3">3</option>
+                <option <%=products[i].quantity==4?"selected":''%> value="4">4</option>
+                <option <%=products[i].quantity==5?"selected":''%> value="5">5</option>
+              </select>
+            </form>
+              </td>
+              <td>
+                  <form method="POST", action="/cart-delete-item">
+                  <input type="hidden" name="productId" value="<%=products[i].productId._id%>">
+                  <button class="btn btn-danger">Delete Item</button>
+                </form>
+              </td>
+              <td>
+              <h6>Item Total Price:$<%= products[i].quantity*products[i].productId.price%></h6>
+              </td>
+            </tr>
+          <% }%>
+          </tbody>
+          </table>
+          <% let c=0;
+          for(let i=0;i<products.length;i++)
+          {
+            c+=products[i].quantity*products[i].productId.price
+          } 
+          %>
+          <h4 class="total">Cart Total:$<%= c %></h4>
+        </div>
+
+
+<%- include("includes/footer" )%>

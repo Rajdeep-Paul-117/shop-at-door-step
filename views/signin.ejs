@@ -1,0 +1,26 @@
+<%- include("includes/header" )%>
+<title>Products</title>
+<link rel="stylesheet" href='styles/add-product.css'>
+</head>
+<body>
+    <%- include('includes/navigation') %>
+    <div class="container-fluid f">
+    <% if(errmsg){%>
+    <div class="alert alert-danger" role="alert">
+        <%=errmsg%>
+    </div><%}%>
+    <form method="POST" action="/signin" class="ff">
+
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter Email">
+
+        <label>Password</label>
+        <input type="Password" name="password" class="form-control" placeholder="Enter password">
+        <button type="submit" class="btn btn-primary submit">Submit</button>
+        <a href='/signup'>Click here to Sign up</a>
+    </form>
+    </div>
+
+
+
+<%- include("includes/footer" )%>
