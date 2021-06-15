@@ -21,7 +21,7 @@
 
 }
 .row{
-    background-color:  #64b5f6;
+    background-color: #afd6f5;
     justify-content:center;
 }
 .cardclick{
@@ -33,8 +33,10 @@
 }
 .card-img-top
 {
+    padding-top: 20px;
     height:30vh;
 }
+
 @media(max-width: 680px)
 {
     .cimg{

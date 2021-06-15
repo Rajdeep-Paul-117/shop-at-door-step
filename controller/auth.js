@@ -25,9 +25,10 @@ exports.getSignin=(req,res,next)=>{
 	  } else {
 	    message = null;
 	  }
+	  
 	res.render('signin',{
 		path:'/signin',
-		errmsg:message
+		errmsg:message,
 	})
 }
 exports.postSignin=(req,res,next)=>{

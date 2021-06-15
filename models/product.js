@@ -12,6 +12,10 @@ const ProductSchema=new Schema({
         require:true,
         trim:true
     },
+    category:{
+        type:String,
+        trim:true
+    },
     img:{
         type:String,
         required:true,
@@ -20,7 +24,11 @@ const ProductSchema=new Schema({
     description:{
         type:String,
         trim:true
+    },
+    sellerid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
     }
 })
-
+ProductSchema.index({'$**':'text'})
 module.exports=mongoose.model("Product",ProductSchema)

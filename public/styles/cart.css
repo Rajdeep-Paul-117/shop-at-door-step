@@ -1,17 +1,38 @@
 .cart{
-	background-color: #64b5f6;
+	background-color: #afd6f5;
 }
-img{
-	height:10vh;
 
-}
 .title{
 	text-decoration: none;
 	color:black;
-}
-.title:hover{
-	color:black;
+	font-size: 24px;
 }
 .total{
+	text-align: center;
+}
+.col-lg-6 label{
+	font-size: 18px;
+	margin-bottom: 7px;
+}
+.col-lg-6 img{
+	height: 40vh;
+	width: 20vw;
 	float: right;
+}
+@media (max-width:460px)
+{
+	.col-lg-6 label
+	{
+		margin-bottom: auto;
+	}
+	.col-lg-6 img{
+		height: 18vh;
+		width: 25vw;
+		margin-top: -50px;
+	}
+	.col-lg-6{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
 }

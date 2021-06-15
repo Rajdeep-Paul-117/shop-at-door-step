@@ -9,9 +9,11 @@
       <img src="<%=item.img%>" class="img-fluid">
       <h6>price:$<%= item.price%></h6>
       <p><%=item.description %></p>
-      <a class="btn btn-success" href='/update-product/<%= item._id%>'>Edit Product details</a>
-      <a class="btn btn-danger" href='/delete-product/<%= item._id%>'>Delete this Product</a>
-  </div>
+      <% if(isSeller){ %>
+        <a class="btn btn-success" href='/update-product/<%= item._id%>'>Edit Product details</a>
+        <a class="btn btn-danger" href='/delete-product/<%= item._id%>'>Delete this Product</a>
+        <% } %>
+    </div>
 
 
 

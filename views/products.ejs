@@ -1,12 +1,21 @@
 <%- include("includes/header" )%>
 <title>Products</title>
-<link rel="stylesheet" href='styles/product.css'>
+<link rel="stylesheet" href='/styles/product.css'>
+
 </head>
 <body>
     <%- include('includes/navigation') %>
       <h4><%-productTitle%></h4>
     <div class="container-fluid">
         <div class='row'>
+          <% if(succmsg){%>
+            <div class="alert alert-success" id="alert" role="alert">
+                <%=succmsg%>
+            </div>
+          <%}%>
+          <% if(products.length==0){ %>
+            <h3>Product Not Found</h3>
+          <% } %>
           <% for(let i=0;i<products.length ;i++){%>
           <div class="card col-3" style="width: 18rem;">
           <img class="card-img-top" src="<%= products[i].img%>" alt="Card image cap">
@@ -26,7 +35,5 @@
           <% }%>
         </div>
         </div>
-
-
 
 <%- include("includes/footer" )%>

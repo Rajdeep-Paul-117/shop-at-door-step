@@ -26,6 +26,23 @@ const userSchema=new Schema({
 				required:true
 			}
 		}]
+	},
+	orders:{
+		items:[{
+			productId:{
+				type:Schema.Types.ObjectId,
+				ref:'Product',
+				required:true
+			},
+			quantity:{
+				type:Number,
+				required:true
+			},
+			date:{
+				type:Date,
+				default:Date.now
+			}
+		}]
 	}
 
 })

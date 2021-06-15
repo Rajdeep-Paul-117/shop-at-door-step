@@ -1,5 +1,5 @@
 .row{
-    background-color: #64b5f6;
+    background-color: #afd6f5;
     justify-content:center;
 }
 .card{
@@ -22,7 +22,7 @@ h4{
     padding:0px;
     margin:0px;
     padding-top: 3px;
-    background-color:  #64b5f6;
+    background-color:#afd6f5;
     color:white;
     text-align: center;
 }
@@ -34,4 +34,8 @@ h4{
 }
 .details{
     display: inline
+}
+.alert{
+    width: 83%;
+    margin: 8px 0px;
 }

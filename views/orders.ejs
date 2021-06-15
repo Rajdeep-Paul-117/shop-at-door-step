@@ -1,0 +1,36 @@
+
+<%- include("includes/header" )%>
+<title>Cart</title>
+<link rel="stylesheet" href='/styles/cart.css'>
+</head>
+<body>
+    <%- include('includes/navigation') %>
+    <div class="container-fluid cart">
+        <% if(succmsg){%>
+            <div class="alert alert-success" id="alert" role="alert">
+                <%=succmsg%>
+            </div>
+          <%}%>
+          <% if(products.length==0){ %>
+            <h3>No Order Found</h3>
+          <% } %>
+      <h4 class="text-center">Order Details</h4>
+      <% for(let i=0;i<products.length ;i++){%>
+        <div class="row">
+          <div class="col-4 col-lg-6">
+            <img src="<%= products[i].productId.img%>">
+          </div>
+          <div class="col-8 col-lg-6 ">
+            <label><h6>Product Name:</h6></label>
+            <a class="title" href="/item/<%= products[i].productId._id %>"><%= products[i].productId.title%></a>
+            <h5>Price:$<%= products[i].productId.price%></h5>
+            <h5>Quantity:<%=products[i].quantity%></h5>
+            <h6>Ordered on:<%=products[i].date%></h6>
+            <h4>Item Total Price:$<%= products[i].quantity*products[i].productId.price%></h4>
+            
+          </div>
+        </div>
+        <hr>
+      <% }%>
+
+<%- include("includes/footer" )%>
